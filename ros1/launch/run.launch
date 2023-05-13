@@ -1,0 +1,10 @@
+<launch>
+  <!-- topicnames to subscribe -->
+  <arg name="topicname_imu"          default="/imu/data"/>
+  <arg name="topicname_mag"          default="/mag"/>
+
+  <node pkg="ahrs" name="ahrs_node" type="ahrs_node" output="screen">
+    <param name="topicname_imu" type="string" value="$(arg topicname_imu)"/>
+    <param name="topicname_mag" type="string" value="$(arg topicname_mag)"/>
+  </node>
+</launch>
