@@ -7,6 +7,7 @@
 #include <ros/ros.h>
 #include "sensor_msgs/Imu.h"
 #include "sensor_msgs/MagneticField.h"
+#include "nav_msgs/Odometry.h"
 
 class AHRSROS
 {
@@ -32,6 +33,11 @@ private:
 
   ros::Subscriber sub_mag_;
   std::string topicname_mag_;
+
+// Publisher
+private:
+  ros::Publisher pub_filtered_pose_;
+  std::string topicname_filtered_pose_;
 
 };
 

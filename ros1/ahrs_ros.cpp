@@ -14,6 +14,10 @@ AHRSROS::AHRSROS(const ros::NodeHandle& nh)
   sub_mag_ = nh_.subscribe<sensor_msgs::MagneticField>
     (topicname_mag_, 5, &AHRSROS::callbackMagnetometer, this);
 
+  // Publisher
+  pub_filtered_pose_ = nh_.advertise<nav_msgs::Odometry>
+    (topicname_filtered_pose_, 1);
+
   this->run();
 }
 
