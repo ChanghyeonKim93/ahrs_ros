@@ -8,6 +8,9 @@ AHRSROS::AHRSROS(const ros::NodeHandle& nh)
   // Get ROS parameters from launch file
   this->getParameters();
 
+  // AHRS object
+  ahrs_ = std::make_unique<AHRS>();
+
   // Subscribers
   sub_imu_ = nh_.subscribe<sensor_msgs::Imu>
     (topicname_imu_, 5, &AHRSROS::callbackIMU, this);

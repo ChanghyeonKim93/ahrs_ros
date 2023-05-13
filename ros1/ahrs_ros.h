@@ -9,6 +9,8 @@
 #include "sensor_msgs/MagneticField.h"
 #include "nav_msgs/Odometry.h"
 
+#include "core/ahrs.h"
+
 class AHRSROS
 {
 public:
@@ -38,6 +40,9 @@ private:
 private:
   ros::Publisher pub_filtered_pose_;
   std::string topicname_filtered_pose_;
+
+private:
+  std::unique_ptr<AHRS> ahrs_;
 
 };
 
